@@ -1,0 +1,25 @@
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend build files
+backend/target/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local Spring Boot configuration
+backend/src/main/resources/application-local.properties
+
+# Keep local database credentials private
+backend/src/main/resources/application.properties

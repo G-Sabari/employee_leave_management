@@ -1,0 +1,688 @@
+
+/* =========================
+   1. GLOBAL STYLES
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #202b3c;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-layout {
+  min-height: 100vh;
+}
+
+/* =========================
+   2. SIDEBAR
+========================= */
+
+.sidebar {
+  width: 245px;
+  background: #ffffff;
+  border-right: 1px solid #e8edf4;
+  padding: 28px 18px;
+  position: fixed;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 42px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #315bea;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.brand h2 {
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+
+.brand span,
+.sidebar-bottom span {
+  display: block;
+  color: #8b95a7;
+  font-size: 12px;
+}
+
+.menu-label {
+  color: #9aa3b2;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin: 0 0 14px 10px;
+}
+
+.navigation {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-item {
+  border: 0;
+  background: transparent;
+  color: #68758a;
+  padding: 13px 12px;
+  border-radius: 9px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #edf2ff;
+  color: #315bea;
+}
+
+.nav-item.active {
+  font-weight: bold;
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  border-top: 1px solid #edf0f5;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-avatar,
+.top-avatar,
+.employee-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e6ebff;
+  color: #315bea;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.sidebar-bottom strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+/* =========================
+   3. MAIN CONTENT AND HEADER
+========================= */
+
+.main-content {
+  margin-left: 245px;
+  padding: 0 34px 24px;
+  min-width: 0;
+}
+
+.topbar {
+  min-height: 100px;
+  border-bottom: 1px solid #e8edf4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.breadcrumb {
+  color: #8994a6;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.topbar h1 {
+  font-size: 25px;
+  margin: 0;
+  color: #202b3c;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #68758a;
+  font-size: 12px;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+  background: #22b573;
+  border-radius: 50%;
+}
+
+.top-avatar {
+  margin-left: 12px;
+}
+
+/* =========================
+   4. WELCOME SECTION
+========================= */
+
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.welcome-section h2 {
+  font-size: 21px;
+  margin: 0 0 9px;
+}
+
+.welcome-section p,
+.section-heading p {
+  margin: 0;
+  color: #8994a6;
+  font-size: 13px;
+}
+
+/* =========================
+   5. BUTTONS
+========================= */
+
+.primary-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 17px;
+  background: #315bea;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #2449ca;
+}
+
+.primary-button:focus-visible,
+.text-button:focus-visible,
+.nav-item:focus-visible,
+.cancel-button:focus-visible {
+  outline: 2px solid #315bea;
+  outline-offset: 3px;
+}
+
+.text-button {
+  background: transparent;
+  border: 0;
+  color: #315bea;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+/* =========================
+   6. DASHBOARD STATISTICS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card,
+.requests-card,
+.placeholder-card {
+  background: white;
+  border: 1px solid #e8edf4;
+  border-radius: 12px;
+}
+
+.stat-card {
+  padding: 20px;
+  min-width: 0;
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  margin-bottom: 18px;
+}
+
+.stat-icon.blue {
+  color: #315bea;
+  background: #edf2ff;
+}
+
+.stat-icon.purple {
+  color: #8056d9;
+  background: #f1ebff;
+}
+
+.stat-icon.orange {
+  color: #d88a21;
+  background: #fff4e3;
+}
+
+.stat-icon.green {
+  color: #159b65;
+  background: #e5f8ef;
+}
+
+.stat-card p {
+  color: #748095;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+  margin: 0 0 12px;
+}
+
+.stat-note {
+  color: #9aa3b2;
+  font-size: 11px;
+}
+
+/* =========================
+   7. LEAVE REQUESTS TABLE
+========================= */
+
+.requests-card {
+  margin-top: 26px;
+  padding: 24px;
+  min-width: 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: #929bad;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  font-weight: bold;
+  padding: 14px 12px;
+  background: #fafbfe;
+}
+
+td {
+  border-bottom: 1px solid #edf0f5;
+  padding: 17px 12px;
+  color: #68758a;
+  font-size: 12px;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.employee-cell strong {
+  color: #344054;
+}
+
+.employee-avatar {
+  width: 32px;
+  height: 32px;
+  background: #f0f2f8;
+  color: #5d6a80;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.status-badge.approved {
+  background: #e5f8ef;
+  color: #159b65;
+}
+
+.status-badge.pending {
+  background: #fff4e3;
+  color: #c47b14;
+}
+
+.status-badge.rejected {
+  background: #ffebeb;
+  color: #d64545;
+}
+
+/* =========================
+   8. MY LEAVES PAGE
+========================= */
+
+.my-leaves-section {
+  margin-top: 28px;
+}
+
+.empty-message {
+  padding: 35px 10px;
+  text-align: center;
+  color: #8994a6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   9. LEAVE APPLICATION FORM
+========================= */
+
+.leave-form-card {
+  background: white;
+  border: 1px solid #e8edf4;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.leave-form {
+  display: grid;
+  gap: 20px;
+}
+
+.leave-form label {
+  display: grid;
+  gap: 8px;
+  color: #344054;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.leave-form input,
+.leave-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9e0eb;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  color: #202b3c;
+  background: white;
+}
+
+.leave-form input:focus,
+.leave-form textarea:focus {
+  outline: 2px solid #c9d6ff;
+  border-color: #315bea;
+}
+
+.leave-form textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-button {
+  border: 1px solid #d9e0eb;
+  border-radius: 8px;
+  padding: 12px 17px;
+  background: white;
+  color: #475467;
+}
+
+.cancel-button:hover {
+  background: #f5f7fb;
+}
+
+/* =========================
+   10. PLACEHOLDER PAGE AND FOOTER
+========================= */
+
+.placeholder-card {
+  margin-top: 35px;
+  padding: 45px 25px;
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 35px;
+  color: #315bea;
+}
+
+.placeholder-card h2 {
+  margin-bottom: 10px;
+}
+
+.placeholder-card p {
+  color: #8994a6;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 430px;
+  margin: 0 auto 22px;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 0 5px;
+  color: #9aa3b2;
+  font-size: 11px;
+}
+
+/* =========================
+   11. TABLET RESPONSIVENESS
+========================= */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .main-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* =========================
+   12. MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    padding: 18px;
+  }
+
+  .brand {
+    margin-bottom: 22px;
+  }
+
+  .navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 0 16px 20px;
+  }
+
+  .topbar {
+    min-height: 85px;
+  }
+
+  .topbar h1 {
+    font-size: 20px;
+  }
+
+  .topbar-right > span:not(.online-dot) {
+    display: none;
+  }
+
+  .welcome-section {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card h2 {
+    font-size: 23px;
+  }
+
+  .requests-card {
+    padding: 15px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .leave-form-card {
+    padding: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   13. SMALL MOBILE SCREENS
+========================= */
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+
+/* Professional Logout Button */
+
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
